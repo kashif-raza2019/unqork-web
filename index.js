@@ -9,11 +9,6 @@
  * @note "This is not an officially published or recognized npm package by Unqork, but is a handy communication tool 
  * that can be easily integrated and used through NPM"
  */
-import unqork from "./lib/unqork.js"
+import Unqork from "./lib/core/Unqork.js"
 
-const { Unqork } = unqork;
-
-export {
-    unqork as default,
-    Unqork
-}
+export default Unqork
