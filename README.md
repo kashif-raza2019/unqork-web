@@ -4,7 +4,7 @@ Unqork web, is an unofficial integration support with Unqork Internal Services v
 It provides an easier error free integration with unqork for any environment possible.
 
 ## Status
-[![Publish to npm](https://github.com/kashif-raza2019/unqork-web/actions/workflows/npm-publish-manual.yml/badge.svg)](https://github.com/kashif-raza2019/unqork-web/actions/workflows/npm-publish-manual.yml)
+![Publish to npm](https://img.shields.io/badge/Status-Released-green)
 
 ## How to Install?
 
