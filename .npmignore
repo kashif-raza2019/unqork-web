@@ -1,0 +1,6 @@
+# Ignore Test Folers
+/tests
+
+# Ignore Github Workflows
+.github/
+.github/workflows
