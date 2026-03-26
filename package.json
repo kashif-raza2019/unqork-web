@@ -1,7 +1,8 @@
 {
   "name": "unqork-web",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An Unqork Integration NPM package for communicating with unqork services.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "node \"./tests/ExecuteModule.test.js\""

@@ -26,12 +26,13 @@ It provides an easier error free integration with unqork for any environment pos
 ## How to use?
 
 - After installing the package >> Get your username (or client_id) and password (or client_secret) for accessing the environment.
-- import the package in your module of choice (you may use the below snippet)
+- import the package in your module of choice (ESM)
 
 ```js
-const Unqork = require("unqork-web");
-// Or import Unqork from "unqork-web";
+import Unqork from "unqork-web";
 ```
+
+> This package now uses native ESM (`"type": "module"`).
 
 - Then create the Unqork instance we need to connect with, here we will need three mandatory parameters for initializing the instance
   The environment property value in the below snippet would be the part of url as `https://${environment}.unqork.io`
@@ -88,6 +89,52 @@ For More Information read Unqork API Documentation: [developers.unqork.io](https
 | Get Rows from reference table | *```/fbu/uapi/query/{table}/all```* | *getRowsFromTable(__table_name__, __filter__, __limit__ )*|
 
 Documentation for more to be added soon...
+
+## Generic Swagger-driven execution
+
+You can execute any operation that exists in the bundled `swagger-doc.json` using `operationId`.
+
+```js
+const unqork = new Unqork({
+  environment: "test",
+  client_id: process.env.UNQORK_CLIENT_ID,
+  client_secret: process.env.UNQORK_CLIENT_SECRET,
+});
+
+await unqork.connect();
+
+const operations = unqork.getAvailableOperations();
+
+const moduleComponents = await unqork.callOperation("getModuleComponents", {
+  pathParams: { moduleId: "<MODULE_ID>" },
+  query: { locale: "en-US" },
+});
+```
+
+### Generic request options
+
+- `pathParams`: object used for path placeholders (e.g. `{ moduleId: "..." }`)
+- `query`: query string, object, or `URLSearchParams`
+- `data`: request payload for `POST` / `PUT` / `PATCH`
+- `headers`: custom headers merged with Authorization header
+
+### Backward-compatible helpers
+
+The package still includes convenience methods such as:
+
+- `executeModule`
+- `executeViaProxy`
+- `getModuleComponents`
+- `getRowsFromTable`
+- `getDistinctValuesFromTable`
+- `getModuleSubmissions`
+- `getWorkflowSubmissions`
+- `getSubmission`
+- `createModuleSubmission`
+- `updateSubmission`
+- `deleteSubmissions`
+- `restoreSubmission`
+- `createWorkflowSubmission`
 
 ### Are you from Unqork Engineering Team? Want to collaborate and make it official package for Unqork?!
 
