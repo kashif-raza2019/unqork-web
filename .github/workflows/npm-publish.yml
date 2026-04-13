@@ -5,8 +5,15 @@
 name: Publish to npm on Release
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish (e.g. 1.2.3) — must be SemVer, no leading 'v'"
+        required: true
+      tag:
+        description: "npm dist-tag (e.g. latest, next, beta)"
+        required: false
+        default: latest
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
